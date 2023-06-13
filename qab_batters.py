@@ -54,7 +54,7 @@ def calculate_qab_percentage(start, end, player_id):
         # Insert data into MySQL database
         cursor = hitters.cursor()
         insert_data = "INSERT INTO hitters(playerid, player_name, year, qab, pa, qab_percentage, hits, bb, est_ibb, hbp, 8pitches, RBI, barrels) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-        qab_data = (player_id, new_name, year, total_qabs, at_bats, formatted_qab_percentage, hits, sum(BB), IBB_ESTIMATE, sum(HBP), sum(EIGHTPITCH), sum(RBI), sum(HHB))
+        qab_data = (player_id, new_name, start[0:4], total_qabs, at_bats, formatted_qab_percentage, hits, sum(BB), IBB_ESTIMATE, sum(HBP), sum(EIGHTPITCH), sum(RBI), sum(HHB))
         cursor.execute(insert_data, qab_data)
         hitters.commit()
         hitters.close()'''
